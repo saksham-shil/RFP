@@ -9,12 +9,11 @@ import axios from 'axios'
 
 const RegisterVendor = () => {
   const [categoryOptions, setCategoryOptions] = useState([]);
-  const [isLoadingCategories, setIsLoadingCategories] = useState(false);
+  const [isLoadingCategories, setIsLoadingCategories] = useState(true);
   const navigate = useNavigate();
 
   const fetchCategories = async (signal) => {
     try {
-      setIsLoadingCategories(true);
       const res = await api.get('/api/categories', { signal });
 
       console.log(res.data);
@@ -80,8 +79,9 @@ const RegisterVendor = () => {
         .oneOf([Yup.ref('password'), null], "Passwords must match")
         .required("Confirm Password is required."),
       noOfEmployees: Yup.number()
+        .typeError("Number of employees must be integer")
         .positive("Number of employees must be positive")
-        .integer("Number of employees must be an integer")
+        .integer("Number of employees must be integer")
         .required("Number of employees is required."),
       revenue: Yup.string()
         .matches(
