@@ -18,7 +18,7 @@ const Vendors = () => {
 
     const itemsPerPage = PAGINATIONCONFIG.itemsPerPage;
     const start = curPage * itemsPerPage;
-    const curVendors = vendors.slice(start, start + itemsPerPage);
+    const curVendors = vendors?.slice(start, start + itemsPerPage);
     const pageCount = Math.ceil (vendors.length/itemsPerPage);
 
     const handlePageClick = (selectedPage) => {
@@ -82,11 +82,11 @@ const Vendors = () => {
                                     </thead>
                                     <tbody>
                                         {isLoading && <tr><td colSpan={6} className="text-center"><strong> Loading Data</strong> </td></tr> }
-                                        {/* {isError && <tr><td colSpan={3} className="text-center"><strong> Error Occured while Loading Data </strong> </td></tr>} */}
-                                        {curVendors.length === 0 && <tr><td colSpan={6} className="text-center"><strong> No data found. Try to Refresh. </strong> </td></tr>}
-                                        {curVendors.map((row, index) => (
+                                        {isError && <tr><td colSpan={3} className="text-center"><strong> Error Occured while Loading Data </strong> </td></tr>}
+                                        {!isLoading && curVendors.length === 0 && <tr><td colSpan={6} className="text-center"><strong> No data found. Try to Refresh. </strong> </td></tr>}
+                                        {curVendors?.map((row, index) => (
                                             <tr key={index}>
-                                                <th scope="row">{index + 1}</th>
+                                                <th scope="row">{(curPage * itemsPerPage) + index + 1}</th>
                                                 <td>{row.name}</td>
                                                 <td>{row.email}</td>
                                                 <td>{row.mobile}</td>

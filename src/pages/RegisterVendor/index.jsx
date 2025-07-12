@@ -20,10 +20,10 @@ const RegisterVendor = () => {
 
       if (res.data.response === 'success') {
         const categories = Object.values(res.data.categories)
-        const activeCategories = categories.filter((category) => (
+        const activeCategories = categories?.filter((category) => (
           category.status === 'Active'
         ));
-        const options = activeCategories.map((category => (
+        const options = activeCategories?.map((category => (
           { value: category.id, label: category.name }
         )))
         setCategoryOptions(options);
@@ -106,7 +106,7 @@ const RegisterVendor = () => {
       setSubmitting(true);
 
       try {
-        const categoryIds = values.categories.map(category => category.value).join(',');
+        const categoryIds = values.categories?.map(category => category.value).join(',');
         const res = await api.post('/api/registervendor', {
           'firstname': values.firstName,
           'lastname': values.lastName,
