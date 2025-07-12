@@ -25,8 +25,8 @@ const Login = () => {
                 });
                 console.log(res);
                 if (res.data.error) {
-                    if (res.data.error === 'Invalid credential') toast.error ('Invalid Credentials. Please try again.')
-                    if (res.data.error === "Account status Pending") toast.error ('Your account is yet to be approved by an Admin')
+                    if (res.data.error[0] === 'Invalid credential') toast.error ('Invalid Credentials. Please try again.')
+                    if (res.data.error[0] === "Account status Pending") toast.error ('Your account is yet to be approved by an Admin')
                 } else {
                     localStorage.setItem('token', res.data.token);
                     localStorage.setItem('role', res.data.type);
@@ -118,8 +118,11 @@ const Login = () => {
                                                 
                                             </div>
                                             <div className="mt-4 text-center">
-                                                <Link to='/forgotpass' >Forgot your password?</Link>
-                                                
+                                                <Link to='/changepass' >Reset Password</Link>
+                                            </div>
+                                            
+                                            <div className="mt-4 text-center">
+                                                <Link to='/forgot-password' >Forgot your password?</Link>
                                             </div>
                                         </form>
                                     </div>

@@ -106,7 +106,7 @@ const RegisterVendor = () => {
       setSubmitting(true);
 
       try {
-        const categoryIds = values.categories?.map(category => category.value).join(',');
+        const categoryIds = values.categories.map(category => category.value).join(',');
         const res = await api.post('/api/registervendor', {
           'firstname': values.firstName,
           'lastname': values.lastName,
@@ -361,7 +361,7 @@ const RegisterVendor = () => {
                               }}
                               value={formik.values.categories}
                               onBlur={() => { formik.setFieldTouched('categories', true) }}
-                              placeholder={isLoadingCategories ? "Loading Categories" : "Select categories"}
+                              placeholder={isLoadingCategories ? "Loading Categories" : categoryOptions.length > 0 ? "Select categories" : "Coudn't fetch, Refresh"}
                             />
                           </div>
                           {formik.touched.categories && formik.errors.categories && (
@@ -380,6 +380,14 @@ const RegisterVendor = () => {
                         </div>
                       </div>
                     </form>
+                    <div className="mt-4 text-center">
+                        <Link to='/login' >Login</Link>
+                        
+                    </div>
+                    <div className="mt-4 text-center">
+                        <Link to='/registeradmin' >Register as Admin</Link>
+                        
+                    </div>
                   </div>
                 </div>
               </div>

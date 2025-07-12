@@ -18,27 +18,15 @@ const Sidebar = () => {
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
             <li>
-              <Link to="/admin" className="waves-effect">
+              <Link to="/vendor" className="waves-effect">
                 <i className="mdi mdi-file-document-box-outline"></i>
                 <span>Dashboard</span>
               </Link>
             </li>
             <li>
-              <Link to="/admin/vendors" className="waves-effect">
+              <Link to="/vendor/rfp-for-quote" className="waves-effect">
                 <i className="mdi mdi-receipt"></i>
-                <span>Vendors</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/rfp-lists" className="waves-effect">
-                <i className="mdi mdi-flip-vertical"></i>
-                <span>RFP Lists</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/categories" className="waves-effect">
-                <i className="mdi mdi-weather-night"></i>
-                <span>Categories</span>
+                <span>RFPs For Quote</span>
               </Link>
             </li>
           </ul>

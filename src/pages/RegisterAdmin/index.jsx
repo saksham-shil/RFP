@@ -214,6 +214,14 @@ const RegisterAdmin = () => {
                         </div>
                       </div>
                     </form>
+                    <div className="mt-4 text-center">
+                        <Link to='/login' >Login</Link>
+                        
+                    </div>
+                    <div className="mt-4 text-center">
+                        <Link to='/registervendor' >Register as Vendor</Link>
+                        
+                    </div>
                   </div>
                 </div>
               </div>
