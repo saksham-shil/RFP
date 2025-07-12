@@ -15,14 +15,20 @@ import NotFound from '../pages/NotFound'
 import VendorDashboard from '../pages/VendorPanel/VendorDashboard'
 import RFPForQuotes from '../pages/VendorPanel/RFPForQuotes'
 import Quote from '../pages/VendorPanel/Quote'
+import ChangePassword from '../pages/ChangePassword'
+import ForgotPassword from '../pages/ForgotPassword'
+import ResetPasswordOTP from '../pages/ResetPasswordOTP'
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path='/' element = {<Navigate replace to = "/login" />} />
       <Route path='/login' element = {<Login />} />
+      <Route path='/changepass' element = {<ChangePassword />} />
       <Route path='/registervendor' element = {<RegisterVendor />} />
       <Route path='/registeradmin' element = {<RegisterAdmin />} />
+      <Route path='/forgot-password' element = {<ForgotPassword />} />
+      <Route path='/reset-password-otp' element = {<ResetPasswordOTP />} />
       <Route element = {<ProtectedRoutes allowed='admin'/>}>
         <Route path='/admin' element = {<Dashboard />} />
         <Route path='/admin/vendors' element = {<Vendors />} />

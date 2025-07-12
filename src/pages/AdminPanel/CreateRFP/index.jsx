@@ -31,7 +31,7 @@ const CreateRFP = () => {
         const user_id = localStorage.getItem('userid')
 
         const payload = {
-            user_id: user_id.id,
+            user_id: user_id,
             rfp_no: data.rfp_no,
             item_name: data.itemName,
             item_description: data.itemDescription,
