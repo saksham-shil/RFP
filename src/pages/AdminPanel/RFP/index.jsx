@@ -146,7 +146,8 @@ const RFP = () => {
                                             </tr>
 
                                         ))}
-                                    </tbody>                                </table>
+                                    </tbody>
+                                </table>
                             </div>
 
                             <ReactPaginate
