@@ -16,6 +16,7 @@ const Login = () => {
             password: Yup.string().min(5, 'Password must be of 5 letters').required("Password is required")
         }),
         onSubmit: async (values, { setSubmitting }) => {
+            console.log("clicked login")
             setSubmitting(true);
 
             try {
@@ -25,8 +26,8 @@ const Login = () => {
                 });
                 console.log(res);
                 if (res.data.error) {
-                    if (res.data.error[0] === 'Invalid credential') toast.error ('Invalid Credentials. Please try again.')
-                    if (res.data.error[0] === "Account status Pending") toast.error ('Your account is yet to be approved by an Admin')
+                    if (res.data.error === 'Invalid credential') toast.error ('Invalid Credentials. Please try again.')
+                    if (res.data.error === "Account status Pending") toast.error ('Your account is yet to be approved by an Admin')
                 } else {
                     localStorage.setItem('token', res.data.token);
                     localStorage.setItem('role', res.data.type);
@@ -106,7 +107,7 @@ const Login = () => {
                                             </div>
                                             
                                             <div className="mt-3">
-                                                <button className="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In</button>
+                                                <button className="btn btn-primary btn-block waves-effect waves-light" type="submit" disabled={formik.isSubmitting}>{formik.isSubmitting ? 'Logging in...' : 'Log In'}</button>
                                             </div>
                                             
                                             <div className="mt-4 text-center">
